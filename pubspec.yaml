@@ -1,0 +1,43 @@
+name: reqresapp
+description: A new Flutter project.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:  
+  flutter:
+    sdk: flutter
+  dio: ^3.0.9
+  google_fonts: ^1.1.0
+  flutter_modular: ^2.0.1
+  flutter_mobx: ^2.0.0
+  mobx: ^2.0.0
+  dartz: ^0.9.1
+  equatable: ^1.2.2
+  shared_preferences: ^0.5.8
+  flutter_speed_dial: ^1.0.9
+  cached_network_image: ^2.5.1
+
+dev_dependencies:
+  mockito: ^4.1.1
+  modular_codegen: any
+  mobx_codegen: any
+  build_runner: any
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    
+vars: 
+    clean: flutter clean
+    get: flutter pub get
+    runner: flutter pub run build_runner
+scripts: 
+    mobx_build: $clean & $get & $runner build --delete-conflicting-outputs
+    mobx_watch: $clean & $get & $runner watch --delete-conflicting-outputs
